@@ -74,7 +74,7 @@ export default {
 
   // Build Configuration: https://go.nuxtjs.dev/config-build
   build: {},
-  env: {
+  publicRuntimeConfig: {
     LIFF_ID: process.env.LIFF_ID,
   }
 }

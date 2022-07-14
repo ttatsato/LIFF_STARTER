@@ -86,7 +86,19 @@ export default {
   mounted() {
     this.$liffInit
       .then(() => {
-        this.sdkVersion = liff.getVersion();
+        // NOTE LIFFブラウザの場合、liff.init()実行時に自動でログイン処理が実行されるため、liff.login()は利用できません。
+        // NOTE liff.login()の引数にredirectUriを指定した場合、アクセスしたLIFF URLのチャネルに設定された［エンドポイントURL］が、redirectUriに指定したURLと一致しているか検証します。
+        // this.$liff.login();
+        console.log(this.$liff.getLanguage())
+        console.log(this.$liff.getVersion())
+        console.log(this.$liff.isInClient())
+        console.log(this.$liff.getOS())
+        console.log(this.$liff.getLineVersion())
+        this.$liff.openWindow({
+          url: 'https://line.me',
+          external: true,
+        });
+        // this.sdkVersion = liff.getVersion();
       })
       .catch((error) => {
         this.liffError = error;

@@ -10,7 +10,6 @@ export default ({$config}, inject) => {
   inject('liff', liff);
 
   // execute liff.init()
-  console.log($config)
   const initResult = liff.init({liffId: $config.LIFF_ID})
     .then(() => {
       console.log('liff.init() done');
